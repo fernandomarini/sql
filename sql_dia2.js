@@ -55,9 +55,19 @@ async function main() {
         console.log(result);
         */
 
+        
+        // Calcular numero de docentes por asignatura    
+        
+        // Primero cargo los campos de la tabla subject_teacher
+
         /* 
-        // Calcular numero de docentes por asignatura    ############################################## NO FUNCIONA ############################################
-        let docenteMateria = "SELECT subject_id_t, COUNT(*) AS docenteMateria FROM teachers GROUP BY subject_id_t";
+        let carga = "INSERT INTO subject_teacher( subject_id, teacher_id, grupo_id )" + "VALUES (2, 2, 1 )";
+        let [resul,dat] = await connection.query(carga);
+        console.log("Carga de datos completa");
+        console.log(resul);
+        
+        
+        let docenteMateria = "SELECT subject_id, COUNT(*) AS docenteMateria FROM subject_teacher GROUP BY subject_id";
         let [result,data] = await connection.query(docenteMateria);
         console.log("Docentes calculados Exitosamente");
         console.log(result);
@@ -81,13 +91,13 @@ async function main() {
         console.log(result);
         */
 
-
+        /*
         // Nota Media ultimo año por alumno
         let notaMediaLastYear = " SELECT AVG(mark), student_id FROM marks WHERE (date BETWEEN '2021-12-31' AND '2022-12-31') GROUP BY student_id  ";
         let [result,data] = await connection.query(notaMediaLastYear);
         console.log("Media del ultimo año calculada con Exito");
         console.log(result);
-
+        */
 
     }
    
