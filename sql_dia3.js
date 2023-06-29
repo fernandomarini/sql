@@ -25,14 +25,16 @@ async function main() {
 
         // ***************  RETO 2 *************************
         // Nombre y Apellido docente + nombre asignatura que imarten
-        /* 
-        let sqlSerch = " SELECT first_name, last_name, title FROM teachers JOIN subjects ON ( teachers.id_teachers = subjects.id_subjects ) ";
+         
+        let sqlSerch = " SELECT first_name, last_name, title FROM teachers JOIN subject_teachers ON ( subject_teacher.teacher_id = teachers.id_teachers ) JOIN subjects ON ( subject_teacher.subject_id = subjects.id_subjects ) ";
         let [result,data] = await connection.query(sqlSerch);
         console.log("Busqueda Exitosamente");
         console.log(result);
-        */
+        
+        //JOIN teachers ON ( subject_teacher.teacher_id = teachers.id_teachers )
 
-        // ***************  RETO 3 *************************                  ############################################## NO FUNCIONA ############################################
+        /* 
+        // ***************  RETO 3 *************************                  
         // Numero total alumnos por asignatura, nombre asignatura + nombre y apellido de docente 
         // let sqlSerch = " SELECT subjects.title, teachers.first_name, teachers.last_name, COUNT(students.id_students) FROM students JOIN subject_teacher ON (students.grupo_id = subject_teacher.grupo_id) JOIN subjects ON (subject_teacher.subject_id = subjects.id_subjects) JOIN teachers ON (subject_teacher.teacher_id = teachers.id_teachers) GROUP BY subjects.title";
         let sqlSerch = " SELECT subjects.title, COUNT(students.id_students), teachers.first_name, teachers.last_name FROM students JOIN subject_teacher ON (students.grupo_id = subject_teacher.grupo_id) JOIN subjects ON (subject_teacher.subject_id = subjects.id_subjects) JOIN teachers ON (subject_teacher.teacher_id = teachers.id_teachers) GROUP BY subjects.title";
@@ -41,7 +43,7 @@ async function main() {
         let [result,data] = await connection.query(sqlSerch);
         console.log("Busqueda Exitosamente");
         console.log(result);
-
+        */
     }
     
     catch(err){
